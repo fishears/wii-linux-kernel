@@ -237,7 +237,25 @@
 			gpio-controller;
 			#gpio-cells = <2>;
 		};
+		
+		gpio-leds {
+			compatible = "gpio-leds";
+			
+			slot {
+				label = "Slot";
+				gpios = <&gpio0 26 0>;
+				linux,default-trigger = "mmc0";
+			};
 
+			sensor {
+				label = "Sensorbar";
+				gpios = <&gpio0 23 0>;
+				linux,default-trigger = "default-on";
+				default-state="on";
+			};
+			
+		};
+		
 		i2c-video {
 			#address-cells = <1>;
 			#size-cells = <0>;
